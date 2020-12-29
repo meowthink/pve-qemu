@@ -23,18 +23,10 @@ ifeq ($(shell test -f "$(SRCDIR)/configure" && echo 1 || echo 0), 0)
 endif
 
 PC_BIOS_FW_PURGE_LIST_IN = \
-	hppa-firmware.img \
-	hppa-firmware64.img \
-	openbios-ppc \
-	openbios-sparc32 \
-	openbios-sparc64 \
 	palcode-clipper \
 	s390-ccw.img \
 	s390-netboot.img \
 	u-boot.e500 \
-	qemu_vga.ndrv \
-	slof.bin \
-	opensbi-riscv.*-generic-fw_dynamic.bin \
 
 BLOB_PURGE_SED_CMDS = $(foreach FILE,$(PC_BIOS_FW_PURGE_LIST_IN),-e "/$(FILE)/d")
 BLOB_PURGE_FILTER = $(foreach FILE,$(PC_BIOS_FW_PURGE_LIST_IN),-e "$(FILE)")
